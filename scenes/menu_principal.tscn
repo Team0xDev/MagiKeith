@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://c3lg6kd2sipjk"]
+
+[ext_resource type="Script" uid="uid://bhlchwd1tb0o4" path="res://scripts/menu_principal.gd" id="1_ul6ys"]
+[ext_resource type="Texture2D" uid="uid://cpj5p3e0mkceb" path="res://assets/textures/menu.png" id="2_ul6ys"]
+[ext_resource type="FontFile" uid="uid://q7ehew7hdrqw" path="res://assets/fonts/Scabber.ttf" id="3_iep14"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2hyj"]
+texture = ExtResource("2_ul6ys")
+modulate_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe4n8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ns3he"]
+bg_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa1tu"]
+bg_color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpioy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6518"]
+bg_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxm4i"]
+bg_color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_611wp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcsc"]
+bg_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul6ys"]
+bg_color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b574n"]
+
+[node name="MenuPrincipal" type="Control" unique_id=2079238485]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ul6ys")
+
+[node name="Panel" type="Panel" parent="." unique_id=2011555607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b2hyj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=230837008]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.75
+offset_top = -128.5
+offset_right = 206.75
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=352853291]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iep14")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4n8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ns3he")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fa1tu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xpioy")
+text = "Iniciar Juego"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=999730765]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iep14")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4n8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a6518")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxm4i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_611wp")
+text = "Opciones"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=115182462]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iep14")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4n8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gmcsc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ul6ys")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b574n")
+text = "Salir"
+
+[node name="Label" type="Label" parent="." unique_id=179048862]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -655.5
+offset_right = 655.5
+offset_bottom = 169.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 10
+theme_override_font_sizes/font_size = 52
+text = "MagiKeith"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_salida_pressed"]

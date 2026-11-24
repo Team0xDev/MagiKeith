@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6ity72iqo1xq"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 0.5074483, 0.604649, 1)
+emission_enabled = true
+emission = Color(0.5004488, 0, 0.012438767, 1)
+emission_energy_multiplier = 10.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dynegv76ha622"]
+
+[ext_resource type="Script" uid="uid://bt5pk0e2rsx35" path="res://scripts/gameManager.gd" id="1_e2kea"]
+[ext_resource type="PackedScene" uid="uid://bkxvly4spokqm" path="res://scenes/enemigo.tscn" id="2_nql38"]
+[ext_resource type="PackedScene" uid="uid://bt86ikgmgmgtj" path="res://scenes/Keith.tscn" id="2_xig6l"]
+[ext_resource type="PackedScene" uid="uid://6364jgm57xcy" path="res://scenes/hud.tscn" id="4_37c0p"]
+[ext_resource type="PackedScene" uid="uid://dit0x0qlhf5gl" path="res://scenes/Box.tscn" id="5_nxiu8"]
+[ext_resource type="PackedScene" uid="uid://ddynn83f82u76" path="res://scenes/laser.tscn" id="6_seqsq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8tn5n"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xig6l"]
+
+[node name="Mapa_Prueba" type="Node3D" unique_id=1698164992]
+script = ExtResource("1_e2kea")
+
+[node name="Plano" type="MeshInstance3D" parent="." unique_id=1046133666]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -0.009210896, 0, 0.025067119)
+mesh = SubResource("PlaneMesh_8tn5n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plano" unique_id=328561752]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plano/StaticBody3D" unique_id=111151078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011074543, 0, -0.005056739)
+shape = SubResource("WorldBoundaryShape3D_xig6l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1775613011]
+transform = Transform3D(1, 0, 0, 0, 0.8844122, 0.46670634, 0, -0.46670634, 0.8844122, 0, 20.213543, 33.91199)
+
+[node name="Enemigo[Sus]" parent="." unique_id=904109212 groups=["atacables"] instance=ExtResource("2_nql38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9262786, 0.5664649, -2.3781905)
+"dañoBase" = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1898089949]
+transform = Transform3D(0.99991435, -0.009225964, 0.009285678, 0, 0.709384, 0.7048222, -0.013089776, -0.7047618, 0.7093233, 0.013202027, 2.3740897, 1.8684893)
+fov = 105.0
+
+[node name="Player[Keith]" parent="." unique_id=1458646798 groups=["jugador"] instance=ExtResource("2_xig6l")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.496911e-07, 0, -4)
+
+[node name="CanvasLayer" parent="." unique_id=197026113 instance=ExtResource("4_37c0p")]
+
+[node name="Caja" parent="." unique_id=1775306543 instance=ExtResource("5_nxiu8")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 3.6, 4, 1, -5)
+
+[node name="Laser" parent="." unique_id=871050454 instance=ExtResource("6_seqsq")]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0, 1, -6)
+visible = false
+target_position = Vector3(0, -3.8, 0)

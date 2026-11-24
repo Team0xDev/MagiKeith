@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://6364jgm57xcy"]
+
+[ext_resource type="Script" uid="uid://hinkjy4iccnm" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
+bg_color = Color(0.17184411, 0.11774104, 0.21508199, 0.68700004)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=197026113]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="." unique_id=1030838090]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TextoMision" type="Label" parent="Control" unique_id=700135000]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -40.0
+offset_right = 240.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
+text = "Mision completa!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel1" type="Panel" parent="Control" unique_id=857579993]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 632.0
+offset_right = 80.0
+offset_bottom = 696.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
+
+[node name="IndicadorHabilidad1" type="TextureRect" parent="Control/Panel1" unique_id=687436271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Control" unique_id=1878904412]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 632.0
+offset_right = 152.0
+offset_bottom = 696.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
+
+[node name="IndicadorHabilidad2" type="TextureRect" parent="Control/Panel2" unique_id=510851205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TiempoCarga" type="Label" parent="Control/Panel2" unique_id=2039782398]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Control" unique_id=862471301]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 632.0
+offset_right = 224.0
+offset_bottom = 696.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
+
+[node name="IndicadorCorrer" type="TextureRect" parent="Control/Panel3" unique_id=1166923943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

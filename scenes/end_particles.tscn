@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cyi6038325pqx"]
+
+[ext_resource type="Material" uid="uid://c6ity72iqo1xq" path="res://assets/materials/laser_particle_material.tres" id="1_7ku1l"]
+
+[sub_resource type="Curve" id="Curve_xmihv"]
+_data = [Vector2(0, 1), -1.0, -1.0, 0, 0, Vector2(1, 0), -1.0, -1.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xmihv"]
+curve = SubResource("Curve_xmihv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svoml"]
+resource_local_to_scene = true
+spread = 80.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xmihv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cs5e8"]
+size = Vector2(0.02, 0.02)
+
+[node name="EndParticles" type="GPUParticles3D" unique_id=710203543]
+material_override = ExtResource("1_7ku1l")
+amount = 25
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_svoml")
+draw_pass_1 = SubResource("QuadMesh_cs5e8")

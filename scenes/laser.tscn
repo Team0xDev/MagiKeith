@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ddynn83f82u76"]
+
+[ext_resource type="Script" uid="uid://78vlauiihwid" path="res://scripts/laser.gd" id="1_xmihv"]
+[ext_resource type="PackedScene" uid="uid://cyi6038325pqx" path="res://scenes/end_particles.tscn" id="2_jjj73"]
+[ext_resource type="PackedScene" uid="uid://cnu52kn1004b0" path="res://scenes/beam_particles.tscn" id="3_412cd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2sl3w"]
+flip_faces = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5no5p"]
+transparency = 1
+albedo_color = Color(1, 0.078431375, 0.09019608, 0.60784316)
+emission_enabled = true
+emission = Color(1, 0.078431375, 0.09019608, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="Curve" id="Curve_xmihv"]
+_data = [Vector2(0, 1), -1.0, -1.0, 0, 0, Vector2(1, 0), -1.0, -1.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xmihv"]
+curve = SubResource("Curve_xmihv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjj73"]
+resource_local_to_scene = true
+spread = 80.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xmihv")
+
+[sub_resource type="Curve" id="Curve_2ie10"]
+_data = [Vector2(0, 1), -1.0, -1.0, 0, 0, Vector2(1, 0), -1.0, -1.0, 0, 0]
+point_count = 2
+metadata/_snap_count = 100
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ie10"]
+curve = SubResource("Curve_2ie10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_412cd"]
+resource_local_to_scene = true
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 0.01, 0.05)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2ie10")
+collision_mode = 2
+
+[node name="Laser" type="RayCast3D" unique_id=871050454]
+script = ExtResource("1_xmihv")
+
+[node name="BeamMesh" type="MeshInstance3D" parent="." unique_id=1236284316]
+mesh = SubResource("CylinderMesh_2sl3w")
+surface_material_override/0 = SubResource("StandardMaterial3D_5no5p")
+
+[node name="EndParticles" parent="." unique_id=710203543 instance=ExtResource("2_jjj73")]
+process_material = SubResource("ParticleProcessMaterial_jjj73")
+
+[node name="BeamParticles" parent="." unique_id=1879231007 instance=ExtResource("3_412cd")]
+process_material = SubResource("ParticleProcessMaterial_412cd")

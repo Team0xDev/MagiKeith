@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cj5hxjqf8u3gj"]
+
+[ext_resource type="Script" uid="uid://b526kljkxs8ho" path="res://scripts/menu_de_pausa.gd" id="1_ubem7"]
+
+[node name="MenuDePausa" type="Control" unique_id=1231409791]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ubem7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=250556289]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.75
+offset_top = -137.75
+offset_right = 211.75
+offset_bottom = 137.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=760758768]
+layout_mode = 2
+
+[node name="SeguirJugando" type="Button" parent="MarginContainer/VBoxContainer" unique_id=280341796]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Seguir Jugando"
+
+[node name="Opciones" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1086905758]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Opciones"
+
+[node name="SalirAlMenu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1911839419]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Salir al Menu"
+
+[node name="Salir" type="Button" parent="MarginContainer/VBoxContainer" unique_id=263679445]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Salir Del Juego"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SeguirJugando" to="." method="_on_seguir_jugando_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SalirAlMenu" to="." method="_on_salir_al_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

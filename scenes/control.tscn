@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://42v45qhhpeqw"]
+
+[ext_resource type="Script" uid="uid://1y28c33s0nn0" path="res://scripts/control.gd" id="1_sky72"]
+[ext_resource type="Texture2D" uid="uid://lw8uxa7qkgcl" path="res://assets/textures/left_mouse_button_light.png" id="2_brbbq"]
+[ext_resource type="Texture2D" uid="uid://bqaaovl5oqeut" path="res://assets/textures/right_mouse_button_light.png" id="3_8n18e"]
+
+[node name="Control" type="Control" unique_id=1072082755]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sky72")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=395046634]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 555.0
+offset_right = 88.0
+offset_bottom = 645.0
+texture_normal = ExtResource("2_brbbq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1556523271]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 555.0
+offset_right = 196.0
+offset_bottom = 645.0
+texture_normal = ExtResource("3_8n18e")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="button_up" from="TextureButton2" to="." method="_on_texture_button_2_button_up"]

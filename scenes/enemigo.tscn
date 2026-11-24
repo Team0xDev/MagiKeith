@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bkxvly4spokqm"]
+
+[ext_resource type="Script" uid="uid://bhfi2b63r78kg" path="res://scripts/enemyController.gd" id="1_v45gs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmoew"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vmoew"]
+material = SubResource("StandardMaterial3D_vmoew")
+height = 2.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kcpm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v45gs"]
+height = 0.5
+radius = 2.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4tsq"]
+size = Vector3(1.15, 0.6, 1.15)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1588142654 groups=["enemigos"]]
+script = ExtResource("1_v45gs")
+
+[node name="Cilindro" type="MeshInstance3D" parent="." unique_id=1314645423]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_vmoew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1979714156]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_7kcpm")
+
+[node name="AreaDeteccion" type="Area3D" parent="." unique_id=1840086237]
+
+[node name="RangoDeteccion" type="CollisionShape3D" parent="AreaDeteccion" unique_id=214318004]
+shape = SubResource("CylinderShape3D_v45gs")
+debug_color = Color(0.73711145, 0.457547, 0.28897473, 0.41960785)
+
+[node name="AreaAtaque" type="Area3D" parent="." unique_id=179558341]
+
+[node name="RangoAtaque" type="CollisionShape3D" parent="AreaAtaque" unique_id=540736869]
+shape = SubResource("BoxShape3D_w4tsq")
+
+[node name="TimerAtk1" type="Timer" parent="." unique_id=1347530608]
+wait_time = 1.2
+
+[node name="TimerAtk2" type="Timer" parent="." unique_id=772352131]
+wait_time = 5.0
+
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_on_areadeteccion_body_entered"]
+[connection signal="body_exited" from="AreaDeteccion" to="." method="_on_areadeteccion_body_exited"]
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_areaataque_body_entered"]
+[connection signal="body_exited" from="AreaAtaque" to="." method="_on_areaataque_body_exited"]
