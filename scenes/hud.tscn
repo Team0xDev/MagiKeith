@@ -43,8 +43,8 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 16.0
 offset_top = 632.0
-offset_right = 80.0
-offset_bottom = 696.0
+offset_right = 86.0
+offset_bottom = 702.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
 
 [node name="IndicadorHabilidad1" type="TextureRect" parent="Control/Panel1" unique_id=687436271]
@@ -60,10 +60,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Control" unique_id=1878904412]
 layout_mode = 0
-offset_left = 88.0
+offset_left = 104.0
 offset_top = 632.0
-offset_right = 152.0
-offset_bottom = 696.0
+offset_right = 174.0
+offset_bottom = 702.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
 
 [node name="IndicadorHabilidad2" type="TextureRect" parent="Control/Panel2" unique_id=510851205]
@@ -78,26 +78,39 @@ stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="TiempoCarga" type="Label" parent="Control/Panel2" unique_id=2039782398]
-visible = false
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 62.0
-offset_bottom = 20.0
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 65.0
+offset_bottom = 51.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 11
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 28
 text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Txt_Carga" type="Label" parent="Control/Panel2" unique_id=760656825]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -40.0
+offset_right = 89.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 16
+text = "(Mantener)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel3" type="Panel" parent="Control" unique_id=862471301]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 192.0
 offset_top = 632.0
-offset_right = 224.0
-offset_bottom = 696.0
+offset_right = 262.0
+offset_bottom = 702.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
 
 [node name="IndicadorCorrer" type="TextureRect" parent="Control/Panel3" unique_id=1166923943]

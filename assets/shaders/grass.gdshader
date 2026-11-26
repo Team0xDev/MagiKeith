@@ -12,8 +12,8 @@ uniform float wind_speed : hint_range(0.1, 4.0) = 1.5;
 varying float height_factor;
 
 void vertex() {
-	// UV.y = 0 base, 1 punta
-	height_factor = UV.y;
+	// UV.y = 1 base, 0 punta
+	height_factor = 1.0 - UV.y;
 
 	vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 

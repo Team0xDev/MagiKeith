@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkxvly4spokqm"]
 
 [ext_resource type="Script" uid="uid://bhfi2b63r78kg" path="res://scripts/enemyController.gd" id="1_v45gs"]
+[ext_resource type="PackedScene" uid="uid://e4rskrh5lx2t" path="res://scenes/BarraDeVida.tscn" id="2_vida"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmoew"]
 albedo_color = Color(1, 0, 0, 1)
@@ -9,25 +10,28 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_vmoew")
 height = 2.5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kcpm"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hlx46"]
+height = 2.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v45gs"]
-height = 0.5
+height = 1.0
 radius = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4tsq"]
-size = Vector3(1.15, 0.6, 1.15)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vida"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1588142654 groups=["enemigos"]]
 script = ExtResource("1_v45gs")
 
-[node name="Cilindro" type="MeshInstance3D" parent="." unique_id=1314645423]
+[node name="Capsula" type="MeshInstance3D" parent="." unique_id=1314645423]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_vmoew")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1979714156]
+[node name="ColisionEnemigo" type="CollisionShape3D" parent="." unique_id=974797450]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_7kcpm")
+shape = SubResource("CapsuleShape3D_hlx46")
 
 [node name="AreaDeteccion" type="Area3D" parent="." unique_id=1840086237]
 
@@ -41,10 +45,34 @@ debug_color = Color(0.73711145, 0.457547, 0.28897473, 0.41960785)
 shape = SubResource("BoxShape3D_w4tsq")
 
 [node name="TimerAtk1" type="Timer" parent="." unique_id=1347530608]
-wait_time = 1.2
+wait_time = 1.5
 
 [node name="TimerAtk2" type="Timer" parent="." unique_id=772352131]
 wait_time = 5.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=613118206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 1.8
+omni_shadow_mode = 0
+
+[node name="BarraVidaBillboard" type="Sprite3D" parent="." unique_id=613118207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+billboard = 1
+texture_filter = 0
+texture = SubResource("ViewportTexture_vida")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=613118208]
+transparent_bg = true
+size = Vector2i(240, 40)
+render_target_update_mode = 4
+
+[node name="BarraDeVida" parent="SubViewport" unique_id=284972595 instance=ExtResource("2_vida")]
+offset_left = 0.0
+offset_top = 12.0
+offset_right = 240.0
+offset_bottom = 28.0
+scale = Vector2(1, 1)
 
 [connection signal="body_entered" from="AreaDeteccion" to="." method="_on_areadeteccion_body_entered"]
 [connection signal="body_exited" from="AreaDeteccion" to="." method="_on_areadeteccion_body_exited"]

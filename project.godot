@@ -37,7 +37,7 @@ project/assembly_name="MagicCat"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mergingmeshes/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 

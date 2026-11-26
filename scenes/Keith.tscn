@@ -104,7 +104,7 @@ bind/27/pose = Transform3D(-0.0065259365, -1.6198852e-07, -0.9999786, -0.9999786
 size = Vector3(0.6, 0.3, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cs5e8"]
-size = Vector3(2, 0.4, 0.36)
+size = Vector3(2.5, 0.4, 0.36)
 
 [node name="Keith" type="CharacterBody3D" unique_id=1458646798]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
@@ -113,7 +113,7 @@ script = ExtResource("1_ivaqt")
 [node name="ColisionGato" type="CollisionShape3D" parent="." unique_id=36830191]
 transform = Transform3D(-1.3113416e-07, 8.742278e-08, 1, -1, -4.371139e-08, -1.3113416e-07, 4.3711378e-08, -1, 8.742278e-08, 0.009, 0.225, -0.009)
 shape = SubResource("CapsuleShape3D_a8y0u")
-debug_color = Color(0.05490196, 0.5176471, 0, 1)
+debug_color = Color(0.14176032, 0.9702237, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1885085511]
 root_node = NodePath("../Rotable")
@@ -349,21 +349,30 @@ debug_color = Color(0.9408043, 1.0396242e-05, 0.6155819, 0.41960785)
 transform = Transform3D(-0.062047344, -0.020537442, 9.841161e-10, 5.5212288e-17, -3.4239402e-09, -0.08586913, 0.016857885, -0.075590335, 3.6221501e-09, -0.07000017, -0.029, 0.27499995)
 transparency = 1.0
 
+[node name="Slash2" parent="Rotable/AreaMelee/RangoMelee" unique_id=1794277419 instance=ExtResource("12_m411t")]
+transform = Transform3D(-0.062047344, -0.020537442, 9.841161e-10, 5.5212288e-17, -3.4239402e-09, -0.08586913, 0.016857885, -0.075590335, 3.6221501e-09, -0.07000017, 0.07100001, 0.27499992)
+transparency = 1.0
+
+[node name="Slash3" parent="Rotable/AreaMelee/RangoMelee" unique_id=979358775 instance=ExtResource("12_m411t")]
+transform = Transform3D(-0.062047344, -0.020537442, 9.841161e-10, 5.5212288e-17, -3.4239402e-09, -0.08586913, 0.016857885, -0.075590335, 3.6221501e-09, -0.07000017, -0.12900001, 0.27499992)
+transparency = 1.0
+
 [node name="AreaRango" type="Area3D" parent="Rotable" unique_id=1686772594]
 
 [node name="RangoRange" type="CollisionShape3D" parent="Rotable/AreaRango" unique_id=921949189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.609658, 0.48069084, 1.3957745e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0.48, 0)
 shape = SubResource("BoxShape3D_cs5e8")
 debug_color = Color(0.9459135, 0.2349414, 0, 0.41960785)
 
 [node name="Laser" parent="Rotable/AreaRango/RangoRange" unique_id=871050454 instance=ExtResource("7_rqgs8")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.95965797, 0.019309163, -1.3957742e-08)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.158, -0.05902779, 0)
 visible = false
-target_position = Vector3(0, -2.1, 0)
+target_position = Vector3(0, -2.5, 0)
 
 [node name="Grupo - Timers" type="Node" parent="." unique_id=1375741732]
 
 [node name="TimerMelee" type="Timer" parent="Grupo - Timers" unique_id=359869969]
+wait_time = 0.6
 one_shot = true
 
 [node name="TimerRange" type="Timer" parent="Grupo - Timers" unique_id=1883468521]

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cip6ovvjr3d3c"]
+
+[ext_resource type="Texture2D" uid="uid://b83qwk35n4nov" path="res://assets/textures/lush-green-grass-texture-from.jpg" id="1_prref"]
+
+[resource]
+albedo_color = Color(0.40110815, 0.628915, 0.28758287, 1)
+albedo_texture = ExtResource("1_prref")
+uv1_scale = Vector3(18, 18, 18)

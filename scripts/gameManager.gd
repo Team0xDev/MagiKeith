@@ -6,28 +6,22 @@ extends Node
 var _house_camera: Camera3D
 var paused: bool = false
 var pause_menu: Control
-var enemigos_derrotados: Array[bool] = [false, false, false, false]
+var enemy_counter: int = 0
+var enemy_needed: int = 0
 var mision_completa: bool = false
+var player: Node
 
-signal mision_completada
+signal completar_mision
 
-func registrar_enemigo_derrotado(indice: int) -> void:
-	# Marca un enemigo como derrotado y completa la mision al derrotar todos.
-	if indice < 0:
-		return
-	if indice >= enemigos_derrotados.size():#Error
-		return
-	enemigos_derrotados[indice] = true
-	if not mision_completa and _todos_enemigos_derrotados():
+func registrar_enemigo_derrotado() -> void:
+	enemy_counter += 1
+	print(enemy_counter)
+	if enemy_counter >= enemy_needed:
 		mision_completa = true
-		mision_completada.emit()
-
-func _todos_enemigos_derrotados() -> bool:
-	# Revisa si todas las entradas del progreso de enemigos estan marcadas.
-	for derrotado in enemigos_derrotados:
-		if not derrotado:
-			return false
-	return true
+	if mision_completa:
+		completar_mision.emit("Mision completa!") 
+		await get_tree().create_timer(4.0).timeout
+		completar_mision.emit("Fin de la demo!\nGracias por jugar :)")
 
 # Se ejecuta cuando el nodo entra al árbol de la escena.
 func _ready() -> void:
@@ -48,7 +42,13 @@ func _input(event: InputEvent) -> void:
 
 # Busca la cámara de la casa y conecta las áreas de entrada y salida de la escena cargada.
 func _on_scene_changed() -> void:
+	player = get_tree().get_first_node_in_group("jugador")
 	var scene := get_tree().current_scene
+	enemy_needed = get_tree().get_nodes_in_group("enemigos").size()
+	var world_limit := scene.get_node_or_null("LimiteMundo") as Area3D
+	if world_limit:
+		world_limit.body_entered.connect(_on_world_limit_body_entered)
+	print(enemy_needed)
 	# No hay nada que buscar si no existe una escena activa.
 	if scene == null:
 		return
@@ -66,15 +66,14 @@ func _on_scene_changed() -> void:
 	if _house_camera == null:
 		return
 
-	# Busca las áreas que contienen las colisiones interior y exterior.
+	# Busca el área que contiene la colisión del interior.
 	var interior_area := _house_camera.get_node_or_null("Area1") as Area3D
-	var exterior_area := _house_camera.get_node_or_null("Area2") as Area3D
 	# Conecta la entrada al área interior solo si la señal aún no está conectada.
 	if interior_area != null and not interior_area.body_entered.is_connected(_on_interior_body_entered):
 		interior_area.body_entered.connect(_on_interior_body_entered)
-	# Conecta la entrada al área exterior solo si la señal aún no está conectada.
-	if exterior_area != null and not exterior_area.body_entered.is_connected(_on_exterior_body_entered):
-		exterior_area.body_entered.connect(_on_exterior_body_entered)
+	# Conecta la salida del área interior solo si la señal aún no está conectada.
+	if interior_area != null and not interior_area.body_exited.is_connected(_on_interior_body_exited):
+		interior_area.body_exited.connect(_on_interior_body_exited)
 
 # Se activa cuando un cuerpo entra en el área interior.
 func _on_interior_body_entered(body: Node3D) -> void:
@@ -82,8 +81,8 @@ func _on_interior_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jugador") and _house_camera != null:
 		_house_camera.make_current()
 
-# Se activa cuando un cuerpo entra en el área exterior.
-func _on_exterior_body_entered(body: Node3D) -> void:
+# Se activa cuando un cuerpo sale del área interior.
+func _on_interior_body_exited(body: Node3D) -> void:
 	# Ignora cualquier cuerpo que no pertenezca al grupo del jugador.
 	if not body.is_in_group("jugador"):
 		return
@@ -99,3 +98,11 @@ func pauseMenu():
 	paused = !paused
 	get_tree().paused = paused
 	pause_menu.visible = paused
+
+func _on_world_limit_body_entered(body: Node3D) -> void:
+	if body.is_in_group("jugador"):
+		completar_mision.emit("Whoops.")
+		await get_tree().create_timer(3).timeout
+		enemy_counter = 0
+		mision_completa = false
+		get_tree().reload_current_scene()

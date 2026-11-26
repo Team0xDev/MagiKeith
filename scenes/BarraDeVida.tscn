@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc7x2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcvnl"]
-bg_color = Color(0.8268984, 0.4825979, 0.5426233, 1)
+bg_color = Color(0.9199388, 0.17064807, 0.24964663, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe4n8"]
 bg_color = Color(0.12955844, 0.12955847, 0.12955841, 1)
@@ -19,7 +19,7 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sau36"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="BarraDeVida" type="ProgressBar" unique_id=284972595 groups=["barra_vida"]]
+[node name="BarraDeVida" type="ProgressBar" unique_id=284972595]
 z_index = 1
 offset_left = 13.999999
 offset_top = 29.000002
